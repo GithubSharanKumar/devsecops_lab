@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TestHOOK</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#ece5dd;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.chat-box{
+width:400px;
+height:650px;
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 0 20px rgba(0,0,0,.2);
+display:flex;
+flex-direction:column;
+}
+
+.header{
+background:#075E54;
+color:white;
+padding:18px;
+font-size:22px;
+font-weight:bold;
+text-align:center;
+}
+
+.messages{
+flex:1;
+padding:15px;
+overflow:auto;
+background:#efeae2;
+}
+
+.message{
+background:white;
+padding:10px 15px;
+border-radius:10px;
+margin-bottom:10px;
+width:fit-content;
+max-width:75%;
+box-shadow:0 2px 5px rgba(0,0,0,.1);
+}
+
+.me{
+margin-left:auto;
+background:#DCF8C6;
+}
+
+.bottom{
+display:flex;
+padding:10px;
+background:#f0f0f0;
+}
+
+input{
+flex:1;
+padding:12px;
+border:none;
+outline:none;
+border-radius:20px;
+font-size:15px;
+}
+
+button{
+margin-left:10px;
+padding:12px 20px;
+border:none;
+background:#128C7E;
+color:white;
+border-radius:20px;
+cursor:pointer;
+font-weight:bold;
+}
+
+button:hover{
+background:#0e6f65;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="chat-box">
+
+<div class="header">
+💬 TalkBox
+</div>
+
+<div class="messages" id="messages">
+
+<div class="message">
+Hello 👋
+</div>
+
+<div class="message me">
+Welcome to TalkBox!
+</div>
+
+</div>
+
+<div class="bottom">
+
+<input
+id="msg"
+placeholder="Type a message...">
+
+<button onclick="sendMessage()">
+Send
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function sendMessage(){
+
+const input=document.getElementById("msg");
+
+if(input.value.trim()=="") return;
+
+const div=document.createElement("div");
+
+div.className="message me";
+
+div.innerHTML=input.value;
+
+document.getElementById("messages").appendChild(div);
+
+input.value="";
+
+document.getElementById("messages").scrollTop=
+document.getElementById("messages").scrollHeight;
+
+}
+
+</script>
+
+</body>
+</html>
